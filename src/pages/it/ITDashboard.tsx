@@ -58,7 +58,7 @@ export default function ITDashboard() {
         <div className="flex items-center gap-2">
           {user?.role !== 'executive' && (
             <Link
-              to="/it/incidents"
+              to="/portal/it-department/incidents"
               className="flex items-center gap-1.5 px-3 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold rounded-lg shadow-xs transition-colors"
             >
               <Plus className="w-4 h-4" />
@@ -67,7 +67,7 @@ export default function ITDashboard() {
           )}
           {user?.role !== 'executive' && (
             <Link
-              to="/it/assets"
+              to="/portal/it-department/assets"
               className="flex items-center gap-1.5 px-3 py-2 border border-slate-200 hover:bg-slate-50 bg-white text-slate-700 text-sm font-semibold rounded-lg shadow-xs transition-colors"
             >
               <Plus className="w-4 h-4" />

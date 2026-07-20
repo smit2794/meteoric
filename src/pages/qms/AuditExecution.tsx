@@ -59,7 +59,7 @@ export default function AuditExecution() {
       updateAuditChecklist(audit.id, checklist, auditStatus);
       showSuccess(`Audit checklist saved as ${auditStatus}.`);
       if (auditStatus === 'Completed') {
-        navigate('/qms/audits');
+        navigate('/portal/qms-team/audits');
       }
     } catch (err) {
       showError('Failed to save checklist.');

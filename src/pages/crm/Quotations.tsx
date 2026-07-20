@@ -90,7 +90,7 @@ export default function Quotations() {
 
     showSuccess(`Quotation saved successfully as ${status}.`);
     setShowBuilder(false);
-    navigate('/crm/quotations', { replace: true });
+    navigate('/portal/sales-team/quotations', { replace: true });
   };
 
   const handleRequestCOA = (id: number, quoteNo: string) => {
@@ -218,7 +218,7 @@ export default function Quotations() {
         {/* Builder Header */}
         <div className="flex items-center gap-3">
           <button 
-            onClick={() => { setShowBuilder(false); navigate('/crm/quotations', { replace: true }); }} 
+            onClick={() => { setShowBuilder(false); navigate('/portal/sales-team/quotations', { replace: true }); }} 
             className="p-2 border border-slate-200 hover:bg-slate-50 bg-white rounded-lg transition-all text-slate-600 shadow-2xs"
           >
             <ChevronLeft className="w-4 h-4" />
@@ -332,7 +332,7 @@ export default function Quotations() {
           {/* Builder Controls */}
           <div className="flex items-center justify-end gap-2 pt-4 border-t border-slate-100">
             <button
-              onClick={() => { setShowBuilder(false); navigate('/crm/quotations', { replace: true }); }}
+              onClick={() => { setShowBuilder(false); navigate('/portal/sales-team/quotations', { replace: true }); }}
               className="px-4 py-2 text-sm font-semibold border border-slate-200 rounded-lg hover:bg-slate-50 text-slate-600 transition-colors"
             >
               Cancel

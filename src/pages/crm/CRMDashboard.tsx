@@ -59,7 +59,7 @@ export default function CRMDashboard() {
         <div className="flex items-center gap-2">
           {user?.role !== 'executive' && (
             <Link
-              to="/crm/leads"
+              to="/portal/sales-team/crm"
               className="flex items-center gap-1.5 px-3 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold rounded-lg shadow-sm transition-colors"
             >
               <Plus className="w-4 h-4" />
@@ -68,7 +68,7 @@ export default function CRMDashboard() {
           )}
           {user?.role !== 'executive' && (
             <Link
-              to="/crm/quotations"
+              to="/portal/sales-team/quotations"
               className="flex items-center gap-1.5 px-3 py-2 border border-slate-200 hover:bg-slate-50 bg-white text-slate-700 text-xs font-semibold rounded-lg shadow-sm transition-colors"
             >
               <Plus className="w-4 h-4" />
