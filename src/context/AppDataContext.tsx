@@ -56,9 +56,11 @@ interface AppDataContextType {
   activityLogs: ActivityLog[];
   notifications: DemoNotification[];
   demoRole: 'Super Admin' | 'IT Department' | 'Admin Department' | 'Sales Team' | 'QA Team' | 'QMS Team';
+  fontSize: 'sm' | 'base' | 'lg' | 'xl';
 
   // Actions
   setDemoRole: (role: 'Super Admin' | 'IT Department' | 'Admin Department' | 'Sales Team' | 'QA Team' | 'QMS Team') => void;
+  setFontSize: (size: 'sm' | 'base' | 'lg' | 'xl') => void;
   addAsset: (asset: Omit<ITAsset, 'id' | 'asset_id'>) => void;
   updateAsset: (id: number, data: Partial<ITAsset>) => void;
   deleteAsset: (id: number) => void;
@@ -106,6 +108,21 @@ const AppDataContext = createContext<AppDataContextType | null>(null);
 
 export const AppDataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [demoRole, setDemoRole] = useState<'Super Admin' | 'IT Department' | 'Admin Department' | 'Sales Team' | 'QA Team' | 'QMS Team'>('Super Admin');
+  const [fontSize, setFontSizeState] = useState<'sm' | 'base' | 'lg' | 'xl'>(() => {
+    const saved = localStorage.getItem('meteoric_font_size');
+    return (saved as 'sm' | 'base' | 'lg' | 'xl') || 'base';
+  });
+
+  const setFontSize = (size: 'sm' | 'base' | 'lg' | 'xl') => {
+    setFontSizeState(size);
+    localStorage.setItem('meteoric_font_size', size);
+  };
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.remove('font-size-sm', 'font-size-base', 'font-size-lg', 'font-size-xl');
+    root.classList.add(`font-size-${fontSize}`);
+  }, [fontSize]);
   const [assets, setAssets] = useState<ITAsset[]>(initialAssets);
   const [tickets, setTickets] = useState<Ticket[]>(initialTickets);
   const [vendors, setVendors] = useState<Vendor[]>(initialVendors);
@@ -546,6 +563,7 @@ export const AppDataProvider: React.FC<{ children: React.ReactNode }> = ({ child
   return (
     <AppDataContext.Provider value={{
       assets, tickets, vendors, nonItAssets, travelBookings, couriers, register, leads, quotations, customers, coaRequests, coas, orders, qmsDocuments, audits, ncs, activityLogs, notifications, demoRole,
+      fontSize, setFontSize,
       setDemoRole,
       addAsset, updateAsset, deleteAsset,
       addTicket, updateTicketStatus, assignTicket, addTicketComment,

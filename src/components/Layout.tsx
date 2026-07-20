@@ -5,11 +5,11 @@ import { useAuth } from '../context/AuthContext';
 import { useNotifications } from '../context/NotificationContext';
 import { 
   LayoutDashboard, Laptop, ShieldCheck, Bell, LogOut, 
-  Building, Contact, Layers, CheckSquare, Settings2, Menu, X, ChevronDown, ChevronRight, User, Settings
+  Building, Contact, Layers, CheckSquare, Settings2, Menu, X, ChevronDown, ChevronRight, User, Settings, Type
 } from 'lucide-react';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const { demoRole, setDemoRole } = useAppData();
+  const { demoRole, setDemoRole, fontSize, setFontSize } = useAppData();
   const { user, logout, hasModuleAccess } = useAuth();
   const { notifications, unreadCount, markAsRead, markAllAsRead } = useNotifications();
   
@@ -253,6 +253,22 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <option value="Admin">Admin</option>
                 <option value="Manager">Manager</option>
                 <option value="Executive">Executive</option>
+              </select>
+            </div>
+
+            {/* Font Size selector */}
+            <div className="flex items-center gap-1 bg-slate-100 hover:bg-slate-200/80 px-2.5 py-1 rounded-full transition-colors">
+              <Type className="w-3 h-3 text-slate-400 pl-0.5" />
+              <span className="text-[9px] font-extrabold uppercase tracking-wide text-slate-400">Size:</span>
+              <select
+                value={fontSize}
+                onChange={(e) => setFontSize(e.target.value as any)}
+                className="bg-transparent border-0 text-[10px] font-bold text-slate-700 focus:ring-0 focus:outline-none cursor-pointer pr-1"
+              >
+                <option value="sm">Small</option>
+                <option value="base">Normal</option>
+                <option value="lg">Large</option>
+                <option value="xl">X-Large</option>
               </select>
             </div>
 

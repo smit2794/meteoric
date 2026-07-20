@@ -3,6 +3,22 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    font-size: 16px;
+    transition: font-size 0.2s ease-out;
+  }
+  html.font-size-sm {
+    font-size: 14px;
+  }
+  html.font-size-base {
+    font-size: 16px;
+  }
+  html.font-size-lg {
+    font-size: 18px;
+  }
+  html.font-size-xl {
+    font-size: 20px;
+  }
   body {
     @apply bg-slate-50 text-slate-900 antialiased font-sans;
   }
@@ -37,3 +53,12 @@
 .animate-slide-down {
   animation: slideDown 0.15s ease-out forwards;
 }
+
+/* Ensure arbitrary pixel-based font size classes scale relative to root */
+.text-\[8px\] { font-size: 0.5rem !important; }
+.text-\[9px\] { font-size: 0.5625rem !important; }
+.text-\[10px\] { font-size: 0.625rem !important; }
+.text-\[11px\] { font-size: 0.6875rem !important; }
+.text-\[12px\] { font-size: 0.75rem !important; }
+.text-\[13px\] { font-size: 0.8125rem !important; }
+

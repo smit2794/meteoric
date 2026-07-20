@@ -2,11 +2,11 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAppData } from '../../context/AppDataContext';
 import { useToast } from '../../context/ToastContext';
-import { Monitor, Briefcase, TrendingUp, CheckCircle, ShieldCheck, Play, ArrowRight, Activity } from 'lucide-react';
+import { Monitor, Briefcase, TrendingUp, CheckCircle, ShieldCheck, Play, ArrowRight, Activity, Type } from 'lucide-react';
 
 export default function PortalSelect() {
   const { 
-    assets, tickets, travelBookings, leads, coaRequests, orders, ncs, demoRole, setDemoRole, vendors
+    assets, tickets, travelBookings, leads, coaRequests, orders, ncs, demoRole, setDemoRole, vendors, fontSize, setFontSize
   } = useAppData();
   const { showWarning } = useToast();
   const navigate = useNavigate();
@@ -101,21 +101,40 @@ export default function PortalSelect() {
           />
         </div>
 
-        {/* Dynamic Role Selector */}
-        <div className="inline-block px-4 py-1.5 bg-white border border-slate-200 rounded-full shadow-xs">
-          <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider mr-2">Demo Role:</span>
-          <select
-            value={demoRole}
-            onChange={(e) => setDemoRole(e.target.value as any)}
-            className="bg-transparent border-0 text-[11px] font-extrabold text-[#1b4332] focus:ring-0 focus:outline-none cursor-pointer"
-          >
-            <option value="Super Admin">Super Admin (All Portals)</option>
-            <option value="IT Department">IT Department</option>
-            <option value="Admin Department">Admin Department</option>
-            <option value="Sales Team">Sales Team</option>
-            <option value="QA Team">QA Team</option>
-            <option value="QMS Team">QMS Team</option>
-          </select>
+        {/* Dynamic Selectors Container */}
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          {/* Dynamic Role Selector */}
+          <div className="inline-block px-4 py-1.5 bg-white border border-slate-200 rounded-full shadow-xs">
+            <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider mr-2">Demo Role:</span>
+            <select
+              value={demoRole}
+              onChange={(e) => setDemoRole(e.target.value as any)}
+              className="bg-transparent border-0 text-[11px] font-extrabold text-[#1b4332] focus:ring-0 focus:outline-none cursor-pointer"
+            >
+              <option value="Super Admin">Super Admin (All Portals)</option>
+              <option value="IT Department">IT Department</option>
+              <option value="Admin Department">Admin Department</option>
+              <option value="Sales Team">Sales Team</option>
+              <option value="QA Team">QA Team</option>
+              <option value="QMS Team">QMS Team</option>
+            </select>
+          </div>
+
+          {/* Accessibility Font Size Selector */}
+          <div className="inline-flex items-center px-4 py-1.5 bg-white border border-slate-200 rounded-full shadow-xs gap-1.5 animate-fade-in">
+            <Type className="w-3.5 h-3.5 text-slate-400" />
+            <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider">Font Size:</span>
+            <select
+              value={fontSize}
+              onChange={(e) => setFontSize(e.target.value as any)}
+              className="bg-transparent border-0 text-[11px] font-extrabold text-[#1b4332] focus:ring-0 focus:outline-none cursor-pointer"
+            >
+              <option value="sm">Small</option>
+              <option value="base">Normal</option>
+              <option value="lg">Large</option>
+              <option value="xl">X-Large</option>
+            </select>
+          </div>
         </div>
 
         <h1 className="text-3xl md:text-4xl font-extrabold text-[#1b4332] tracking-tight max-w-2xl mx-auto leading-tight">
