@@ -105,11 +105,12 @@ export default function PortalLayout({ children }: { children: React.ReactNode }
             </button>
 
             {/* Header */}
-            <div className="h-16 flex items-center px-6 gap-3 border-b border-[#153427] bg-[#122e22]">
-              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center font-black text-[#1b4332] text-xl">
-                +
-              </div>
-              <span className="font-extrabold text-white text-base tracking-tight">Meteoric OS</span>
+            <div className="h-16 flex items-center px-4 border-b border-[#153427] bg-[#122e22]">
+              <img
+                src="/logo.png"
+                alt="Meteoric Biopharmaceuticals"
+                className="h-9 w-auto object-contain brightness-0 invert"
+              />
             </div>
 
             {/* Back to Home Link */}
@@ -158,12 +159,13 @@ export default function PortalLayout({ children }: { children: React.ReactNode }
 
       {/* Sidebar - Desktop */}
       <aside className="hidden lg:flex flex-col w-64 bg-[#1b4332] border-r border-[#1b4332] text-[#95b0a4] select-none shrink-0">
-        {/* Circle Plus Header */}
-        <div className="h-16 flex items-center px-6 gap-3 border-b border-[#153427] bg-[#122e22]">
-          <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center font-black text-[#1b4332] text-xl shadow-xs shrink-0">
-            +
-          </div>
-          <span className="font-extrabold text-white text-base tracking-tight shrink-0">Meteoric OS</span>
+        {/* Logo Header */}
+        <div className="h-16 flex items-center px-4 border-b border-[#153427] bg-[#122e22]">
+          <img
+            src="/logo.png"
+            alt="Meteoric Biopharmaceuticals"
+            className="h-9 w-auto object-contain brightness-0 invert"
+          />
         </div>
 
         {/* Back to Home Link */}
@@ -220,8 +222,11 @@ export default function PortalLayout({ children }: { children: React.ReactNode }
             </button>
 
             <div className="flex items-center gap-2">
-              <Building className="w-4.5 h-4.5 text-slate-400" />
-              <span className="font-bold text-slate-700 text-sm hidden sm:block">Meteoric Biopharma</span>
+              <img
+                src="/logo.png"
+                alt="Meteoric Biopharmaceuticals"
+                className="h-8 w-auto object-contain hidden sm:block"
+              />
               
               <span className="px-2.5 py-0.5 border border-[#dc5f5f] text-[#dc5f5f] text-[9px] font-extrabold uppercase rounded-full tracking-wide">
                 {dept.tag}

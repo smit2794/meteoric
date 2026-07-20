@@ -94,10 +94,11 @@ export default function PortalSelect() {
       {/* Header */}
       <div className="max-w-4xl mx-auto text-center space-y-6 z-10">
         <div className="flex items-center justify-center gap-3">
-          <div className="w-11 h-11 rounded-full bg-[#1b4332] flex items-center justify-center text-white font-black text-xl shadow-md">
-            M
-          </div>
-          <span className="text-xl font-bold tracking-tight text-slate-800">Meteoric Biopharmaceuticals Portal</span>
+          <img
+            src="/logo.png"
+            alt="Meteoric Biopharmaceuticals"
+            className="h-14 w-auto object-contain drop-shadow-sm"
+          />
         </div>
 
         {/* Dynamic Role Selector */}
